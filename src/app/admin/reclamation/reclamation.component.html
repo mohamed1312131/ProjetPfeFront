@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <h2>Reclamations Actives :</h2>
+  <table class="table table-borderless table-responsive card-1 p-4">
+      <thead>
+          <tr class="border-bottom">
+              <th> <span class="ml-2">Date</span> </th>
+              <th> <span class="ml-2">Utilisateurs</span> </th>
+              <th> <span class="ml-2">Type de reclamation</span> </th>
+              <th> <span class="ml-2">Messages</span> </th>
+              <th> <span class="ml-4">Option</span> </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="border-bottom" *ngFor="let rec of reclamation">
+              <td>
+                  <div class="p-2"> <span class="d-block font-weight-bold">{{rec.dateReclamation}}</span>  </div>
+              </td>
+              <td>
+                  <div class="p-2 d-flex flex-row align-items-center mb-2"> <img src="{{rec.user.images[0].imageUrl}}" width="40" class="rounded-circle">
+                      <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{rec.user.name}}</span></div>
+                  </div>
+              </td>
+              <td>
+                  <div class="p-2"> <span class="font-weight-bold">{{rec.subject}}</span> </div>
+              </td>
+              <td>
+                  <div class="p-2 d-flex flex-column"> <span>{{rec.message}}</span> </div>
+              </td>
+              <td>
+                  <div class="p-2">
+                    <button class="btn btn-outline-success" style="margin-right: 5px;"><i class="fas fa-clipboard-check"></i></button>
+                    <button class="btn btn-outline-warning" style="margin-right: 5px;"><i class="fas fa-info"></i></button>
+                    <button class="btn btn-outline-info" (click)="open(rec.user.id)"><i class="fas fa-share-square"></i></button>
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

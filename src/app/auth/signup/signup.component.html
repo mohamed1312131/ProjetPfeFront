@@ -1,0 +1,77 @@
+<app-header></app-header>
+<body style="background-color: #f3f4ed;">
+<section class="login">
+  <div class="container">
+    <div class="login-form">
+      <h2 class="form-title">Créer votre compte</h2>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="name" placeholder="Entrer votre nom">
+            <span class="text-danger"
+                  *ngIf="(signupFormControl.name.touched || submitted) && signupFormControl.name.errors?.required">
+                  Le nom est requis
+            </span>
+            <span class="text-danger"
+                  *ngIf="signupFormControl.name.touched && signupFormControl.name.errors?.minlength">
+                  Le nom doit contenir au moins 4 caractères
+            </span>
+            <span class="text-danger"
+                  *ngIf="signupFormControl.name.touched && signupFormControl.name.errors?.maxlength">
+                  Le nom ne peut pas contenir plus de 20 caractères
+            </span>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="email" formControlName="email" placeholder="Entrez une adresse mail valide">
+          <span class="text-danger"
+                *ngIf="(signupFormControl.email.touched || submitted) && signupFormControl.email.errors?.required">
+                Email requis
+          </span>
+          <span class="text-danger"
+                *ngIf="signupFormControl.email.touched && signupFormControl.email.errors?.email">
+                Entrez une adresse mail valide
+          </span>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="password" formControlName="password"
+                 placeholder="Entez votre mot de passe">
+          <span class="text-danger"
+                 *ngIf="(signupFormControl.password.touched || submitted) && signupFormControl.password.errors?.required">
+                 Mot de passe requis
+          </span>
+          <span class="text-danger"
+                *ngIf="signupFormControl.password.touched && signupFormControl.password.errors?.invalidPassword">
+                Le mot de passe doit comporter au moins 8 caractères, au moins 1 lettre majuscule, 1 lettre minuscule et 1 chiffre
+          </span>
+          <div class="form-group">
+            <input class="form-control" type="password" formControlName="confirmPassword" placeholder="Confirmez le mot de passe">
+                <span class="text-danger"
+                      *ngIf="(signupFormControl.confirmPassword.touched || submitted) && signupFormControl.confirmPassword.errors?.required">
+                    Confirmation de mot de passe est requis
+                </span>
+                <span class="text-danger"
+                      *ngIf="signupFormControl.confirmPassword.touched && signupFormControl.confirmPassword.errors?.passwordMismatch">
+                      les mots de passe ne correspondent pas
+                </span>
+          </div>
+          <div class="check" style="display: inline-block;width: 100%;box-sizing: border-box;">
+            <input id="chk1" type="checkbox" style="width: 5%;margin: auto;">
+
+            <label style="width:60%">J'ai lu et accepte <a routerLink="/" style="width: 35%;color: #60C8FF;"> Conditions générales</a></label>
+
+       </div>
+          <div class="form-group form-button">
+            <button type="submit" [disabled]="!signupForm.valid" class="form-submit" style="width: 100%;">
+              S'inscrire
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<div class="signup">
+  <label class="compte">Vous avez un compte?</label>
+
+  <a class="cree" routerLink="/login">Connexion</a>
+</div>
+</body>

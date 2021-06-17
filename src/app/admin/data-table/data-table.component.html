@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Liste des utilisateurs</h1>
+  <div class="form-group form-inline">
+    <span style="font-weight: 600;">Chercher un utilisateur: </span><input class="form-control ml-2" type="text" placeholder="name" />
+</div>
+<table class="table table-light table-striped">
+  <thead>
+    <tr >
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">adress E-mail</th>
+      <th scope="col">adress</th>
+      <th scope="col">Numero de telephone</th>
+      <th scope="col">Consulter Profil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users">
+      <th scope="row" *ngIf="u.images[0]"><img src="{{u.images[u.images.length-1].imageUrl}}" width="50"></th>
+       <th scope="row" *ngIf="!u.images[0]"><img src="../../../assets/img/default-user.png" width="50"></th>
+      <td>{{u.name}}</td>
+      <td>{{u.email}}</td>
+      <td>{{u.pays}},{{u.region}},{{u.ville}}</td>
+      <td>{{u.tel}}</td>
+      <td>
+        <button class="btn btn-outline-info" (click)="goTo(u.id)"><i class="fas fa-user"></i></button>
+        <button class="btn btn-outline-danger" (click)="goTo(u.id)"><i class="fas fa-trash-alt"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table></div>

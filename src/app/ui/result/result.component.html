@@ -1,0 +1,86 @@
+<app-header></app-header>
+<div class="container">
+
+  <div class="row">
+    <div class="side-menu col-3 ">
+      <div class="title"><h1>Filter</h1></div>
+      <div class="category">
+        <!--<form name="f1"  (onchange)="fngetdata(f)" #f="ngForm">-->
+        <h3>Categorie</h3>
+        <ul class="list-group" >
+          <li class="list-group-item"  style="margin-right:2px ;" *ngFor="let cat of category">
+            <input class="form-check-input me-1" name="{{cat.name}}" type="checkbox" value="{{cat.id}}" (change)="onCheckboxChange($event)">
+            {{cat.name}}
+          </li>
+        </ul>
+
+        <hr>
+      </div>
+      <div class="marque">
+        <h3>Marque</h3>
+        <ul class="list-group" *ngFor="let item of marque">
+          <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="{{item.id}}" (change)="onCheckboxChange2($event)">
+            {{item.name}}
+          </li>
+        </ul>
+        <hr>
+      </div>
+      <div class="prix-range">
+        <h3>prix</h3>
+        <div class="row align-items-start">
+          <div class="col">
+            <span>prix min</span>
+            <input type="text" aria-label="First name" class="form-control">
+          </div>
+          <div class="col">
+            <span>prix max</span>
+            <input type="text" aria-label="Last name" class="form-control">
+          </div>
+          <div class="col">
+            <button class="go btn btn-primary">></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content col-9">
+      <div class="title"><h1>Produits</h1></div>
+      <div class="container2">
+        <mat-grid-list cols="3" rowHeight="500px" gutterSize="5px" style="padding: 5px;">
+          <mat-grid-tile *ngFor="let p of article; let i=index">
+            <div class="product-card">
+              <div *ngIf="p.booster" class="badge">Booster</div>
+
+
+              <div class="product-tumb">
+                <img src="{{p.images[0].imageUrl}}" alt="" >
+              </div>
+              <div class="product-details">
+                <h4><a href="">{{p.title}}</a></h4>
+                <div class="product-bottom-details">
+                    <div class="product-price">{{p.prix}}$</div>
+                </div>
+                <div class="form-group">
+                  <ngb-rating [(rate)]="p.note" [max]="5" ></ngb-rating>
+                </div>
+                <div>
+
+                </div>
+                <div class="b">
+                  <button class="ajouter btn btn-primary" [routerLink]="['/panier', p.id]"><i class="fas fa-shopping-cart"></i> acheter</button>
+                  <button class="plus btn btn-primary" [routerLink]="['/panier', p.id]"><i class="fas fa-heart"></i> favoris</button>
+                </div>
+              </div>
+            </div>
+
+          </mat-grid-tile>
+
+        </mat-grid-list>
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

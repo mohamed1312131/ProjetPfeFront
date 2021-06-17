@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div
+  infinite-scroll
+  [infiniteScrollDistance]="distance"
+  [infiniteScrollThrottle]="throttle"
+  (scrolled)="onScroll()"
+  >
+
+  <mat-grid-list cols="4" rowHeight="500px" gutterSize="5px" style="padding: 5px;" >
+
+
+    <mat-grid-tile *ngFor="let p of article; let i=index">
+      <div class="product-card">
+        <div class="product-tumb">
+          <img  [routerLink]="['/article', p.id]" src="{{p.images[0].imageUrl}}" alt="" >
+        </div>
+        <div class="product-details">
+          <h4><a [routerLink]="['/article', p.id]">{{p.title}}</a></h4>
+          <div class="product-bottom-details">
+              <div class="product-prices">{{p.prix}} DT</div>
+          </div>
+          <div class="form-group">
+            <ngb-rating [max]="5" [(rate)]="p.likes" [readonly]="true"></ngb-rating>
+          </div>
+          <div>
+
+          </div>
+            <div class="b">
+              <button class="ajouter btn btn-primary" [routerLink]="['/panier', p.id]"><i class="fas fa-shopping-cart"></i> acheter</button>
+              <button class="plus btn btn-primary" [routerLink]="['/panier', p.id]"><i class="fas fa-heart"></i> favoris</button>
+            </div>
+
+
+        </div>
+      </div>
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+
+</div>

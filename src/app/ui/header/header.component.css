@@ -1,0 +1,187 @@
+body {
+  background-color: #eee;
+
+}
+*{
+  box-sizing: border-box;
+}
+.header{
+width: 80%;
+margin: auto;
+padding: 20px;
+background-color: white;
+box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  padding: 30px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  height: auto;
+
+}
+.navbar{
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  height: auto;
+  font-weight:500;
+  font-style: normal;
+  margin-bottom: 20px;
+
+}
+
+.div-logo,.search,.all-button{
+  display: inline-block;
+}
+
+.div-logo{
+  width: 20%;
+}
+img{
+  width: 150px;
+}
+
+.search{
+  width: 40%;
+}
+
+.search_sm{
+  display: none;
+}
+
+.all-button{
+  width: 40%;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.all-button *{
+  display: inline;
+  height: 24px;
+
+
+}
+.icons{
+  display: none;
+}
+
+
+
+.login {
+
+  color: white
+}
+
+button.login{
+  text-align: center;
+  background-color: #EEF5FF;
+  border: none;
+  color: #60C8FF;
+  font-style: normal;
+  height: 75%;
+  margin-right: 4%;
+  width: 190px !important;
+
+}
+button.login:hover{
+  background-color: #60C8FF;
+  color: white;
+}
+button.vente{
+  height: 75%;
+  width: 150px !important;
+  background-color: #60C8FF ;
+  border: none;
+}
+
+a.nav-link{
+  font-style: oblique;
+  color: black;
+}
+
+@media (max-width:1220px) {
+.search_sm{
+  display: block;
+}
+.search{
+  display: none;
+}
+.all-button{
+  width: 80%;
+}
+
+
+}
+
+@media (max-width:800px) {
+
+  .search_sm{
+    display: block;
+  }
+  .search{
+    display: none;
+  }
+  .all-button{
+    display: none;
+  }
+  .icons{
+    display: inline-block;
+    width:30%;
+    padding: auto;
+    height: 75%;
+    margin: auto;
+    }
+  .fas{
+    width: 50%;
+
+  }
+
+  .div-logo{
+    width: 70%;
+  }
+
+  }
+
+@media only screen and (max-width: 800px) {
+.logo{
+  display: block;
+  margin:auto;
+}
+.navbar{
+  display: none;
+}
+
+}
+
+.side-nav{
+  background-color: white;
+  width: 80%;
+  margin: auto;
+
+
+}
+.s{
+  width: 100%;
+
+}
+
+.subList{
+  font-size: medium;
+  font-weight: 400;
+  list-style-type: none;
+  margin-bottom: 10px;
+  display: flex;
+    align-items: center;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
+    background: rgba(var(--cg9), 1);
+}
+.subList:hover{
+  background-color:#dddddd;
+}

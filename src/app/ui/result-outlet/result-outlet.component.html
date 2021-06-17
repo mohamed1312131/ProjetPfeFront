@@ -1,0 +1,35 @@
+<div class="container">
+  <mat-grid-list cols="4" rowHeight="500px" gutterSize="5px" style="padding: 5px;">
+    <mat-grid-tile >
+      <div class="product-card">
+        <div class="badge">Booster</div>
+
+
+        <div class="product-tumb">
+          <img src="../../../assets/img/shoe_1.jpg" alt="" >
+        </div>
+        <div class="product-details">
+          <h4><a href=""></a></h4>
+          <div class="product-bottom-details">
+              <div class="product-price"> DT</div>
+          </div>
+          <div class="form-group">
+            <ngb-rating [max]="5" [formControl]="ctrl" (click)="rateing()"></ngb-rating>
+          </div>
+          <div>
+
+          </div>
+          <div class="product-links">
+            <button class="ajouter btn btn-primary">Ajouter au panier</button>
+            <a class="icon"><i class="fa fa-heart"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  
+
+
+</div>

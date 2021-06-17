@@ -1,0 +1,111 @@
+<app-header></app-header>
+
+<section class="vendre">
+  <div class="container" style="margin-top: 12px;width: 80%;border-radius: 0px; background-color: white;height: 700px;">
+
+  <h1 style="text-align: center;">Vendre maintenant</h1>
+<form (ngSubmit) = "onSubmit()"  novalidate enctype="multipart/form-data">
+    <div class="fom-container">
+    <div class="form-group">
+      <label for="name" style="font-weight:500;font-size:20px;">Titre</label>
+      <input
+          id="name"
+          type="text"
+          class="form-control" placeholder="Titre" [(ngModel)] = "article.title" name="title">
+          </div>
+            <label style="font-weight:500;font-size:20px;">Categorie</label>
+            <div class="form-group">
+            <select class="custom-select"  [(ngModel)]="selectedValue" name="selectedValue" (change)="getSubCategory()">
+             <option selected [value]=0>Sélectionner la Categorie</option>
+              <option  *ngFor="let parent of parentCategory; let i = index" [value]="parentCategory[i].id">{{parentCategory[i].name}}</option>
+
+          </select>
+
+          </div>
+          <div class="form-group" *ngIf="selectedValue>0">
+            <select class="custom-select"  [(ngModel)]="selectedValue2" name="selectedValue2" (change)="getSubCategory2()">
+             <option selected [value]=0>Sélectionner la Categorie</option>
+              <option  *ngFor="let sub of subCategory1; let j = index" [value]="subCategory1[j].id">{{subCategory1[j].name}}</option>
+
+          </select>
+
+          </div>
+          <div class="form-group" *ngIf="selectedValue2>0">
+            <select class="custom-select"  [(ngModel)]="selectedValue3" name="selectedValue3">
+             <option selected [value]=0>Sélectionner la Categorie</option>
+              <option  *ngFor="let sub of subCategory2; let j = index" [value]="subCategory2[j].id">{{subCategory2[j].name}}</option>
+
+          </select>
+
+          </div>
+
+    <div class="form-group">
+      <h2>Description</h2>
+      <textarea [(ngModel)] = "article.description" name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+  </div>
+       <div class="form-row">
+        <div class="form-group col-md-4">
+          <label style="font-weight:500;font-size:20px;">Etat</label>
+          <select class="custom-select"  [(ngModel)]="article.etat" name="etat">
+            <option *ngFor="let etat of etats" [value]="etat.value">{{etat.viewValue}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label style="font-weight:500;font-size:20px;">Marque</label>
+          <select class="custom-select"  [(ngModel)]="selectedMarque" name="selectedMarque">
+            <option *ngFor="let m of marque" [value]="m.id">{{m.name}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4" style="width: 100% !important;">
+          <button class="btn btn-primary" style="margin-top: 28px;">Ajouter une marque</button>
+        </div>
+       </div>
+       <div class="form-row">
+         <h2>Prix minimum 1 euro</h2>
+       <div class="input-group mb-3">
+
+        <span class="input-group-text">$</span>
+        <input [(ngModel)]="article.prix" name="prix"  type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+
+      </div>
+    </div>
+    <h2>Photos d'article</h2>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="imagen" #imagenInputFile
+      (change)="onFileChange($event)" accept="image/png, image/jpeg, image/gif">
+      <label class="custom-file-label" for="imagen">ajouter des photos claires</label>
+        </div>
+        <div  class="mt-5">
+
+            <div>
+                <img *ngFor='let url of images' class="image-thumbnail" style="max-width: 100px" [src]="url">
+                <p></p>
+              </div>
+        </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        J'ai lu et accepte les Conditions générales
+      </label>
+      <button class="btn btn-primary" type="submit" style="float: right;" >Submit</button>
+    </div>
+
+
+
+
+
+
+
+
+    <div style="margin-top: 20px;">
+
+  </div>
+</form>
+</div>
+</section>
+
+
+
+

@@ -1,0 +1,41 @@
+<div class="titre">
+  <h2 >Articles boostés</h2>
+</div>
+<div class="container" style="height: auto;">
+
+<carousel style="height: 400px !important;">
+    <div class="carousel-cell"  *ngFor="let p of articleBooster" style="width: auto;">
+
+      <div class="product-card" >
+
+
+
+        <div class="product-tumb">
+          <img src="{{p.images[0].imageUrl}}" alt="" >
+        </div>
+        <div class="product-details">
+          <h4><a href="">{{p.title}}</a></h4>
+          <div class="product-bottom-details">
+              <div class="product-price">{{p.prix}} DT</div>
+          </div>
+          <div class="form-group" disable>
+            <ngb-rating [max]="5"  (click)="rateing()"></ngb-rating>
+          </div>
+          <div>
+
+          </div>
+          <div class="product-links">
+            <button style="font-size:12px;" class="ajouter btn btn-primary"><i class="fas fa-shopping-cart"></i> acheter</button>
+            <button  style="font-size:12px;" class="plus btn btn-primary"><i class="fas fa-heart"></i> favoris</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+</carousel>
+
+</div>
+
+
+

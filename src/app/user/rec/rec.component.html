@@ -1,0 +1,33 @@
+<form class="text-center border border-light p-5" (ngSubmit)="onSubmit()">
+
+  <p class="h4 mb-4">Contact Admin</p>
+
+
+
+  <!-- Subject -->
+  <label>Subject</label>
+  <select [(ngModel)]="reclamation.subject" name="subject" class="browser-default custom-select mb-4">
+    <option value="null" disabled>Choose option</option>
+    <option value="Article en panne" selected>Article en panne</option>
+    <option value="article non conforme">article non conforme</option>
+    <option value="article non reçu">article non reçu</option>
+
+  </select>
+
+  <!-- Message -->
+  <div class="form-group">
+    <textarea [(ngModel)]="reclamation.message" name="message"  class="form-control rounded-0" mdbInput id="exampleFormControlTextarea2"
+      rows="3" placeholder="Message"></textarea>
+  </div>
+
+
+
+  <!-- Send button -->
+  <button  color="info" outline="true" block="true" class="btn btn-primary"
+     type="submit" >Send</button>
+
+</form>
+<div *ngIf="sended" class="alert alert-success" style="text-align: center;width: 70%;margin: 0 auto;margin-bottom: 20px; ">
+<span>Votre reclamation a éte envoyer </span><br>
+<span>vérifiez votre courrier électronique <i class="far fa-smile-beam"></i> </span>
+</div>

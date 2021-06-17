@@ -1,0 +1,45 @@
+<app-header></app-header>
+<section class="login">
+  <div class="container">
+    <div class="login-form">
+      <h2 class="form-title">Changer votre mot de passe</h2>
+        <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword()">
+          <div class="form-group">
+            <input type="password" class="form-control" formControlName="password"
+                placeholder="Mot de passe">
+            <span class="text-danger"
+                *ngIf="resetPasswordFormControl.password.touched && resetPasswordFormControl.password.errors?.required">
+                Mot de passe requis
+            </span>
+            <span class="text-danger"
+                *ngIf="resetPasswordFormControl.password.touched && resetPasswordFormControl.password.errors?.invalidPassword">
+                Le mot de passe doit comporter au moins 8 caractères, au moins 1 lettre majuscule, 1 lettre minuscule et 1 chiffre
+            </span>
+        </div>
+
+
+        <div class="form-group">
+            <input type="password" class="form-control" formControlName="confirmPassword"
+                placeholder="Confirmez le mot de passe">
+            <span class="text-danger"
+                *ngIf="resetPasswordFormControl.confirmPassword.touched && resetPasswordFormControl.confirmPassword.errors?.required">
+                Confirmer le mot de passe est requis
+            </span>
+            <span class="text-danger"
+                *ngIf="resetPasswordFormControl.confirmPassword.touched && resetPasswordFormControl.confirmPassword.errors?.passwordMismatch">
+                les mots de passe ne correspondent pas
+            </span>
+        </div>
+          <div class="form-group form-button">
+            <input type="submit" class="form-submit" value="Changer" [disabled]="!resetPasswordForm.valid"/>
+          </div>
+        </form>
+        <span class="text-danger" *ngIf="errorMsg">
+          {{ errorMsg }}
+        </span>
+        <span class="text-success" *ngIf="successMsg">
+          {{ successMsg }}
+        </span>
+      </div>
+    </div>
+  </section>

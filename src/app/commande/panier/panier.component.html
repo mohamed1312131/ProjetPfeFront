@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <div class="titre">
+        <h2>Mon Achat (1) </h2>
+      </div>
+      <hr>
+      <div class="article row">
+        <div class="image col-4">
+          <img src="{{article.images[0].imageUrl}}" width="150" height="150">
+        </div>
+        <div class="details col-8">
+          <p><a [routerLink]="['/article', id]">{{ article.title}}</a></p>
+          <p><span style="font-weight: bold;"> Par : </span>{{user.name}}</p>
+          <p><span style="font-weight: bold;">unitaire:</span>  {{article.prix}}€</p>
+          <p><span style="font-weight: bold;">Frais de port:</span><span> 5.40€</span></p>
+          <p><span style="font-weight: bold;">Total:</span> {{total}}€</p>
+        </div>
+      </div>
+      <hr>
+      <button class="continuer btn btn-primary" routerLink="/">  < Continuer vos achats</button>
+    </div>
+    <div class="col-5">
+      <div class="commander container">
+        <div class="commander-details">
+          <div class="total"><span class="d">Sous-total</span> <span class="prix">{{article.prix}}€</span></div>
+          <div class="total2"><span class="d">Frais de port:</span> <span class="prix">5.40€</span></div>
+          <hr>
+          <div class="total"><span class="d">Total:</span> <span class="prix">{{total}}€</span></div>
+        </div>
+
+        <button class="caisse btn btn-primary" [routerLink]="['/shiping', id]">Continuer vers la caisse</button>
+        <div class="icon">
+        <img alt="Credit Card Logos" title="Credit Card Logos" src="http://www.credit-card-logos.com/images/visa_credit-card-logos/visa_logo_3.gif" width="35" height="22" border="0" />
+        <img src="../../../assets/img/master-card.png" width="35" height="22">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

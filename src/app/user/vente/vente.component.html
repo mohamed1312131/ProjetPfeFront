@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container">
+  <div class="title"><h1>Ventes</h1></div>
+  <div class="row">
+    <div class="side-menu col-3 ">
+      <ul class="list-group">
+        <li class="list-group-item" >Ventes Actives</li>
+
+      </ul>
+
+    </div>
+    <div class="content col-9">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Vente</th>
+            <th scope="col">Gain</th>
+            <th scope="col">Date</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let articles of article">
+            <th  scope="col"><img src={{articles.images[0].imageUrl}} width="50">{{articles.title}}</th>
+            <th style="padding-top: 30px;" scope="col">{{articles.prix}}</th>
+            <th style="padding-top: 30px;" scope="col">{{articles.orders[0].publishedDate}}</th>
+            <th style="padding-top: 20px;" scope="col" *ngIf="articles.orders[0].statue"><small style="color:green;">Felicitations, votre transaction est finalisé ,<br> vous devez patienter entre 48h et 72h pour que le mont soit affiché sur votre compte bancaire</small></th>
+            <th style="padding-top: 20px;" scope="col" *ngIf="!articles.orders[0].statue"><small style="color:red;">vous devez contacter le livreur pour envoyer votre article</small></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

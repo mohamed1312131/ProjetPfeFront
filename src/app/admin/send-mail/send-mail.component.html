@@ -1,0 +1,25 @@
+<form class="text-center border border-light p-5" (ngSubmit)="onSubmit()">
+
+  <p class="h4 mb-4">Envoyer un email</p>
+
+
+
+  <!-- Subject -->
+
+
+  <!-- Message -->
+  <div class="form-group">
+    <textarea [(ngModel)]="reclamation.message" name="message"  class="form-control rounded-0" mdbInput id="exampleFormControlTextarea2"
+      rows="5" placeholder="Message"></textarea>
+  </div>
+
+
+
+  <!-- Send button -->
+  <button  color="info" outline="true" block="true" class="btn btn-primary"
+     type="submit" >Envoyer</button>
+
+</form>
+<div *ngIf="sended" class="alert alert-success" style="text-align: center;width: 70%;margin: 0 auto;margin-bottom: 20px; ">
+<span>Votre E-mail a éte bien envoyer à {{d.email}}</span>
+</div>

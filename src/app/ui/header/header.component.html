@@ -1,0 +1,80 @@
+<header class="section-header">
+          <div class="header">
+              <div class="div-logo">
+                  <span class="logo" routerLink="/"><img src="../../../assets/img/logo.jpg"></span>
+              </div>
+              <div class="search">
+                  <form action="#" class="search-wrap" >
+                      <div class="input-group w-100">
+                        <input matInput type="text" class="dropdown form-control search-form" style="width:55%;" placeholder="Chercher..." [(ngModel)]="data" name="data" (keyup)="open($event)">
+                         <div class="input-group-append" >
+                             <button class="btn btn-primary search-button" style="background-color:#60C8FF;border-color: #60C8FF;" [routerLink]="['/result', data]">
+                                <i class="fa fa-search" ></i> </button>
+                        </div>
+                      </div>
+
+
+                  </form>
+
+                </div>
+
+                      <div class="icons"><a><i class="fas fa-align-justify fa-1x" style="color: blue;"></i></a></div>
+                      <div class="all-button">
+
+                      <button *ngIf="!isLogged" class="login btn btn-primary" style="height: 75%;" routerLink="/signup">S'inscrire | Se connecter</button>
+
+                      <button *ngIf="!isLogged"  class="vente btn btn-primary" style="height: 35px;" routerLink="/login">Vends tes articles</button>
+
+                       <button mat-raised-button matBadge="{{notif}}" matBadgePosition="after" matBadgeColor="accent" *ngIf="isLogged" class="login btn btn-primary" [matMenuTriggerFor]="menu" style="height: 35px; width: 400px;" > <i class="fas fa-user-circle"></i> {{nom}}</button>
+                       <mat-menu #menu="matMenu" >
+                         <button mat-menu-item [routerLink]="['/profile', id]" ><i class="fas fa-user" style="margin-right: 10px;" ></i>Voir le profile</button>
+                         <button mat-menu-item routerLink="/commandes"><i class="fas fa-shopping-cart" style="margin-right: 10px;"></i>Commander</button>
+                         <button mat-menu-item routerLink="/ventes"><i class="fas fa-dollar-sign" style="margin-right: 10px;"></i>Venter</button>
+                         <button mat-menu-item (click)="clearNotif()"><i class="fas fa-bell" style="margin-right: 10px;" ></i>Notification</button>
+                         <button mat-menu-item routerLink="/parametres"><i class="fas fa-user-cog" style="margin-right: 10px;"></i>Parametre</button>
+                         <button mat-menu-item (click)="logOut()"><i class="fas fa-sign-out-alt" style="margin-right: 10px;" ></i>Deconnexion</button>
+                       </mat-menu>
+                       <button *ngIf="isLogged"  class="vente btn btn-primary" style="height: 35px;" [routerLink]="['/sell-now',id]">Vends tes articles</button>
+                      </div>
+
+                      <div class="search_sm">
+                        <form action="#" class="search-wrap">
+                            <div class="input-group w-100"> <input type="text" class="form-control search-form" style="width:55%;" placeholder="Search">
+                                <div class="input-group-append"> <button class="btn btn-primary search-button" type="submit"> <i class="fa fa-search"></i> </button> </div>
+                            </div>
+                        </form>
+                      </div>
+
+                    </div>
+  <nav class="navbar navbar-expand-md navbar-main" style="margin-top: 1%;">
+      <div class="container-fluid">
+         <div class="navbar-collapse collapse" id="dropdown6" >
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a class="nav-link" href="" data-abc="true">Accueil</a> </li>
+                  <li  class="nav-item" *ngFor="let cat of category" style="margin-left: 10px;">
+                    <button   class="nav-link"  mat-button [matMenuTriggerFor]="animals" (click)="getSubCategorie(cat.id)">{{cat.name}}</button>
+                    <mat-menu  #animals="matMenu" >
+                      <span *ngFor="let sub of subCategorie">
+                      <button style="width: 300px !important;" mat-menu-item [matMenuTriggerFor]="vertebrates" (mouseenter)="getSubCategorie2(sub.id)">{{sub.name}}</button>
+                    </span>
+                    </mat-menu>
+                    <mat-menu #vertebrates="matMenu">
+                      <span *ngFor="let s of subCategorie2">
+                      <button style="width: 300px !important;" [routerLink]="['/cat', s.name]" mat-menu-item>{{s.name}}</button>
+                    </span>
+                    </mat-menu>
+                  </li>
+                </ul>
+              </div>
+      </div>
+  </nav>
+</header>
+<!-- <div class="side-nav">
+    <a class="s nav-link"><button *ngIf="!isLogged" class="login-list btn btn-primary" style="height: 75%;width: 100%;" routerLink="/signup">S'inscrire | Se connecter</button></a>
+    <a class="s nav-link"><button *ngIf="!isLogged"  class="vente-list btn btn-primary" style="height: 35px;width: 100%;" routerLink="/login">Vends tes articles</button></a>
+    <a class="s nav-link"  >Accueil</a>
+    <a class="s nav-link" >Maison et Cuisine</a>
+    <a class="s nav-link" >Image et Son</a>
+    <a class="s nav-link" >Eléctronique</a>
+    <a class="s nav-link" >Informatique</a>
+</div> -->

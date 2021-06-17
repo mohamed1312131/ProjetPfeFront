@@ -1,0 +1,57 @@
+
+.container{
+  width: 80%;
+margin: auto;
+padding: 20px;
+background-color: white;
+box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  padding: 30px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  height: auto;
+}
+.info{
+  width: 100%;
+}
+.commande-details{
+  width: 100%;
+  background-color: #f9f9f9;
+}
+.total{
+  font-weight: 600;
+}
+.prix{
+  float:right;
+}
+.total2{
+  font-weight: 400;
+}
+.but{
+  display: inline-block;
+  box-sizing: border-box;
+}
+.retour{
+  width: auto;
+
+}
+.paiement{
+  background-color: #60C8FF;
+  border-color: #60C8FF;
+  width: auto;
+  margin-left: 180px;
+
+}
+.details{
+  transition: all 0.2s ease-in-out;
+    color: #222;
+    outline: none !important;
+  display: table-cell;
+    vertical-align: top;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-style: normal;
+    color: #222 !important;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+

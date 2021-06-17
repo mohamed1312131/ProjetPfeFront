@@ -1,0 +1,71 @@
+<app-header></app-header>
+<section class="section-plans" id="section-plans">
+  <h1 style="text-align: center;">Boostez votre produit</h1>
+
+  <div class="row">
+
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front-2">
+          <div class="card__title card__title--2">
+            <i class="fas fa-rocket" style="color: #EEF5FF !important;"></i>
+            <h4 class="card__heading" style="color: #60C8FF !important;">Boostez pour trois jours !</h4>
+          </div>
+
+          <div class="card__details">
+            <ul>
+              <li>Badge de promotion</li>
+              <li>Afficher sur la page d'accueil</li>
+              <li>Afficher en premier dans les listes de recherche</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back-2">
+          <div class="card__cta">
+            <div class="card__price-box">
+              <p class="card__price-only">Juste</p>
+              <p class="card__price-value">$1.40/3 jour</p>
+            </div>
+            <a class="btn" style="color: white !important;" (click)="getPrix(1.4,3)">Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-1-of-3">
+      <div class="card">
+        <div class="card__side card__side--front-3">
+          <div class="card__title card__title--3">
+            <i class="fas fa-rocket" style="color: #EEF5FF !important;"></i>
+            <h4 class="card__heading" style="color: #60C8FF !important;">Boostez pour trois jours !</h4>
+          </div>
+
+          <div class="card__details">
+            <ul>
+              <li>Badge de promotion</li>
+              <li>Afficher sur la page d'accueil</li>
+              <li>Afficher en premier dans les listes de recherche</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back-3">
+          <div class="card__cta">
+            <div class="card__price-box">
+              <p class="card__price-only">Juste</p>
+              <p class="card__price-value">1.95/7 jour</p>
+            </div>
+            <a class="btn" (click)="getPrix(1.95,7)" style="color: white !important;">Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-envoyer">
+    <div *ngIf="selectedValue"><h2>Total du: {{price}}€ EUR</h2></div>
+    <button *ngIf="selectedValue" class="envoyer btn btn-primary" (click)="chek()">Pontinuer vers caisse</button>
+    <button *ngIf="!selectedValue" class="envoyer btn btn-primary" (click)="chek()">Envoyer</button>
+    <button style="float: left;background-color: #EEF5FF;color: #60C8FF;"  class="envoyer btn btn-primary" (click)="chek()">Poster sans boosting</button>
+  </div>
+
+</section>

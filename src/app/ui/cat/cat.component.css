@@ -1,0 +1,184 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+mat-toolbar {
+  justify-content: space-between;
+}
+.content {
+  padding: 16px;
+}
+ngb-rating {
+  color: #FFC107;
+  font-size: 25px;
+}
+.card-title{
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.prix{
+  font-size: medium;
+  color: #60C8FF;
+}
+
+
+
+
+
+
+
+
+
+
+a
+{
+    text-decoration: none;
+}
+.product-card {
+    width: 380px;
+    position: relative;
+    box-shadow: 0 2px 7px #fff;
+    margin: 50px auto;
+    background: #f0f0f0;
+}
+
+.badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background:#60C8FF;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    padding: 5px;
+    background: #f0f0f0;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.product-details {
+    padding: 20px;
+}
+
+
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+
+    text-transform: uppercase;
+    color: #363636;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product-details h4 a:hover {
+    color: #60C8FF;
+}
+
+.product-details p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 0px;
+    color: #999;
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.product-bottom-details div {
+    float: left;
+    width: 50%;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #60C8FF;
+    font-weight: 400;
+}
+
+
+
+
+
+.product-links a {
+    display: inline-block;
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.product-links a:hover {
+    color: red;
+}
+.ajouter
+{
+  width: auto;
+  background-color: #EEF5FF;
+  border: none;
+  color: #60C8FF;
+}
+.icon
+{
+  width: auto;
+  margin: 0;
+
+}
+
+button.ajouter:hover{
+  background-color: #60C8FF;
+  color: white;
+}
+.container{
+  background-color: white;
+
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  padding: 30px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  margin: 0 auto;
+  margin-top: 30px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  box-sizing: border-box;
+  width: 80%;
+  padding: 16px;
+  height: auto;
+}
+.list-group-item{
+  border: none;
+}
+.marque{
+  padding-top: 10px;
+  vertical-align: baseline;
+}
+.go{
+  margin-top: 20px;
+}
+
+

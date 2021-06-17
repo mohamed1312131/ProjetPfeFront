@@ -1,0 +1,108 @@
+<app-header></app-header>
+
+<div class = "card-wrapper" >
+  <div class = "row" >
+    <!-- card left -->
+    <div class = "col-8 product-imgs" style="height: auto; box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+
+    border-radius: 6px;
+    border: 1px solid #e6e6e6;">
+      <div class = "img-display">
+        <div class = "img-showcase">
+          <img src = "{{article.images[0].imageUrl}}" alt = "shoe image">
+
+        </div>
+      </div>
+      <div class = "img-select" >
+        <div class = "img-item" *ngFor="let image of otherImage; index as i">
+          <a href = "#" data-id = "1">
+            <img style="max-height: 100%;" src = "{{image.imageUrl}}" alt = "shoe image" height="100">
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <!-- card right -->
+    <div class = "col-4 product-content">
+      <h2 class = "product-title">{{article.title}}</h2>
+
+
+      <div class = "product-price">
+        <p class = "new-price"><span>${{article.prix}}</span></p>
+      </div>
+      <div></div>
+      <div class="form-group" *ngIf="session">
+        <ngb-rating [max]="5" [(rate)]="article.note" [readonly]="readonly" ></ngb-rating>
+      </div>
+      <div class = "product-detail">
+        <h5 class="test">{{article.description}}.</h5>
+        <ul>
+          <li>Mise en ligne: <span></span></li>
+          <li>État: <span>{{article.etat}}</span></li>
+          <li>Marque: <span>{{marque}}</span></li>
+
+        </ul>
+      </div>
+      <div class="buttons" *ngIf="session">
+
+
+          <button class="acheter btn btn-primary" [routerLink]="['/panier', id]">Acheter</button>
+          <button class="favorit btn btn-primary" *ngIf="fav" (click)="addToFav()"> Ajouter aux favoris</button>
+          <button class="favorit btn btn-primary" *ngIf="!fav" (click)="deleteFavorit()">Supprimer de favoris</button>
+      </div>
+        <div class = "vendeur">
+        <h3 class="name">vendeur</h3>
+        <div class="info">
+
+          <div class="user-img">
+            <img src="{{user.images[0].imageUrl}}" alt="Admin" class="rounded-circle" width="150">
+          </div>
+          <div class="info-mail">
+            <p><a [routerLink]="['/profile', user.id]">{{user.email}}</a></p>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<section class="similaire">
+  <div class="container">
+    <h2>Articles similaires</h2>
+    <mat-grid-list cols="5" rowHeight="500px" gutterSize="5px" style="padding: 5px;">
+      <mat-grid-tile *ngFor="let p of similaire; let i=index">
+        <div class="product-card">
+          <div *ngIf="p.end_booster" class="badge">Booster</div>
+
+
+          <div class="product-tumb">
+            <img src="{{p.images[0].imageUrl}}" alt="" >
+          </div>
+          <div class="product-details">
+            <h4 ><a [routerLink]="['/article', p.id]">{{p.title}}</a></h4>
+            <div class="product-bottom-details">
+                <div class="product-prices">{{p.prix}} DT</div>
+            </div>
+            <div class="form-group" disable>
+              <ngb-rating [max]="5" [(rate)]="article.likes" [readonly]="readonly" ></ngb-rating>
+            </div>
+            <div>
+
+            </div>
+            <div class="product-links">
+              <button class="ajouter btn btn-primary" [routerLink]="['/panier', p.id]">Ajouter au panier</button>
+
+            </div>
+          </div>
+        </div>
+
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+
+  </div>
+
+</section>
+

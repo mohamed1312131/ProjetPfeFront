@@ -1,0 +1,23 @@
+.rounded-circle{
+  width: 120px;
+  height: auto !important;
+  margin: auto;
+}
+.container{
+  width: 80%; 
+
+
+  background-color: white;
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+  
+  border-radius: 6px;
+  border: 1px solid #e6e6e6;
+  height: auto;
+
+}
+.titre{
+  padding: 10px;
+  height: 50px;
+  margin: auto;
+  margin-left: 150px;
+}

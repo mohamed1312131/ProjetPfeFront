@@ -1,0 +1,61 @@
+
+<app-header></app-header>
+<body style="background-color: #f3f4ed;">
+<section class="login">
+  <div class="container">
+    <div class="login-form">
+      <h2 class="form-title">Connecter vous à votre compte</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input class="form-control" type="email"
+                      formControlName="email"
+                      placeholder="email"/>
+              <span class="text-danger"
+                    *ngIf="(loginFormControl.email.touched ) && loginFormControl.email.errors?.required">
+                    Email est requis
+              </span>
+              <span class="text-danger"
+                *ngIf="loginFormControl.email.touched && loginFormControl.email.errors?.email">
+                Entrez une adresse mail valide
+              </span>
+          </div>
+          <div class="form-group">
+            <input type="password"
+                  formControlName="password"
+                  class="form-control"
+                  placeholder="Mot de passe">
+            <span class="text-danger"ù
+            *ngIf="(loginFormControl.password.touched) && loginFormControl.password.errors?.required">
+            Mot de passe requis
+            </span>
+          </div>
+          <div class="check" style="display: inline-block;width: 100%;box-sizing: border-box;">
+              <input id="chk1" type="checkbox" style="width: 5%;margin: auto;" (change)="toggleValue($event)">
+
+              <label style="width:60%">souviens-toi de moi</label>
+              <a style="width: 35%;color: #60C8FF;" routerLink="/resetPassword">Mot de passe oublié ?</a>
+         </div>
+            <div class="form-group form-button">
+              <input type="submit" [disabled]="!loginForm.valid" name="signin" id="signin" class="form-submit" value="Connexion"/>
+            </div>
+        </form>
+        <span class="text-danger" *ngIf="invalidLogin">
+          E-mail et / ou mot de passe incorrect
+        </span>
+        <h3 style="text-align: center;">ou</h3>
+        <div class="social-login">
+          <a [href]="getLoginPage('google')"><button class="social-button btn google" >Connecter avec google</button></a>
+          <div style="margin-top: 3px;"><span></span></div>
+          <a [href]="getLoginPage('facebool')"><button class="social-button btn facebook" >Connecter avec facebook</button></a>
+        </div>
+
+    </div>
+  </div>
+</section>
+<div class="signup">
+  <label class="compte">Pas de compte?</label>
+
+  <a class="cree" routerLink="/signup">Crée un compte</a>
+</div>
+</body>
+

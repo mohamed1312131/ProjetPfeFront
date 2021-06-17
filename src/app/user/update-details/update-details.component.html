@@ -1,0 +1,53 @@
+<div><span *ngIf="changed" class="text-success"><i class="fas fa-check"></i>Changements enregistrés</span></div>
+<form (ngSubmit) = "onSubmit(this.userInfo.id)">
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom01">Nom</label>
+      <input [(ngModel)] = "user.name"  type="text" class="form-control" id="name" name="name" placeholder="Full name" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="tel">Telephone</label>
+      <input [(ngModel)] = "user.tel"  type="text" name="tel" class="form-control" id="tel" placeholder="numero de telephone" required>
+    </div>
+    <div class="col-md-12 mb-3">
+      <label for="email">E-mail</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+        </div>
+        <input [(ngModel)] = "user.email"  type="text" class="form-control" id="email" name="email" disabled>
+      </div>
+    </div>
+    <div class="col-md-12 mb-3">
+      <label for="adress1">Adresse 1</label>
+      <div class="form-group">
+        <input [(ngModel)] = "user.adress1"  type="text" class="form-control" name="adress2" id="adress1" placeholder="adress1" >
+      </div>
+    </div>
+    <div class="col-md-12 mb-3">
+      <label for="adress2">Adresse 2</label>
+      <div class="form-group">
+        <input [(ngModel)] = "user.adress2"  type="text" class="form-control" name="adress2" id="adress2" placeholder="adress 2 (Optionnelle)">
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="pays">Pays</label>
+      <input [(ngModel)] = "user.pays"  type="text" class="form-control" id="pays" placeholder="City" name="pays" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="region">Region</label>
+      <input [(ngModel)] = "user.region"  type="text" name="region" class="form-control" id="region" placeholder="region" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="ville">Ville</label>
+      <input [(ngModel)] = "user.ville"  type="text" name="ville" class="form-control" id="ville" placeholder="ville" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="code_postal">Code_postal</label>
+      <input [(ngModel)] = "user.code_postal"  type="number" class="form-control" id="code_postal" placeholder="code_postal" name="code_postal" required>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Sauvegarder</button>
+</form>

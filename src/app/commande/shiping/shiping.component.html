@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <div class="titre">
+        <h2>Caisse</h2>
+      </div>
+      <hr>
+      <div class="info container">
+        <h3 style="font-weight: 500;font-size: 20px;">Informations d'expédition</h3>
+        <form (ngSubmit) = "onSubmit(this.user.id,this.article.id)">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom01">Nom</label>
+              <input [(ngModel)] = "user.name"  type="text" class="form-control" id="name" name="name" placeholder="Full name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="tel">Telephone</label>
+              <input [(ngModel)] = "user.tel"  type="text" name="tel" class="form-control" id="tel" placeholder="numero de telephone" required>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="email">Email</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input [(ngModel)] = "user.email"  type="text" class="form-control" id="email" name="email" disabled>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="adress1">Adresse 1</label>
+              <div class="form-group">
+                <input [(ngModel)] = "user.adress1"  type="text" class="form-control" name="adress2" id="adress1" placeholder="adress1" >
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="adress2">Adresse 2</label>
+              <div class="form-group">
+                <input  [(ngModel)] = "user.adress2" type="text" class="form-control" name="adress2" id="adress2" placeholder="adress 2 (Optionnelle)">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="pays">Pays</label>
+              <input [(ngModel)] = "user.pays"  type="text" class="form-control" id="pays" placeholder="City" name="pays" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="region">Region</label>
+              <input [(ngModel)] = "user.region"  type="text" name="region" class="form-control" id="region" placeholder="region" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="ville">Ville</label>
+              <input [(ngModel)] = "user.ville"  type="text" name="ville" class="form-control" id="ville" placeholder="ville" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="code_postal">code postal</label>
+              <input [(ngModel)] = "user.code_postal"  type="number" class="form-control" id="code_postal" placeholder="code_postal" name="code_postal" required>
+            </div>
+          </div>
+          <div class="but">
+            <button class="retour btn" [routerLink]="['/panier', id]">< retour aux panier</button>
+            <button class="paiement btn btn-primary" type="submit">Passer aux paiement</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="titre">
+        <h2>Résumé de la commande</h2>
+      </div>
+      <hr>
+      <div class="commande-details container">
+        <div class="article row">
+          <div class="image col-3">
+            <img src="{{article.images[0].imageUrl}}" width="100px">
+          </div>
+          <div class="details col-6" style="margin-left: 15px;">
+            <p>{{article.titre}}</p>
+            <p>Par : <span style="font-weight: bold;">{{userSeller.name}}</span></p>
+            <p>Prix unitaire: <span style="font-weight: bold;">{{article.prix}}€</span></p>
+            <p>Frais de port: <span style="font-weight: bold;">5.40€</span></p>
+            <p>Total: <span style="font-weight: bold;">{{total}}€</span></p>
+          </div>
+        </div>
+        <hr>
+        <div class="commander-details">
+          <div class="total"><span class="d">Sous-total</span> <span class="prix">{{article.prix}}€</span></div>
+          <div class="total2"><span class="d">Frais de port:</span> <span class="prix">5.40€</span></div>
+          <hr>
+          <div class="total"><span class="d">Protection acheteurs:</span> <span class="prix">1.49€</span></div>
+          <div class="total"><span class="d">Total:</span> <span class="prix">{{final}}€</span></div>
+
+
+
+        </div>
+
+  </div>
+</div>

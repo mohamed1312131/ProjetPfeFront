@@ -1,0 +1,86 @@
+<app-header></app-header>
+<section class="signup">
+  <div class="container" style="margin-top: 15px;">
+      <div class="signup-content">
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" >
+      <ng-template matStepLabel>remplir le code de vérification</ng-template>
+      <mat-form-field>
+        <mat-label>Code</mat-label>
+        <input matInput placeholder="exmple" formControlName="firstCtrl" required type="number">
+      </mat-form-field>
+      <div>
+        <button class="btn btn-primary" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <form [formGroup]="secondFormGroup" >
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Prenom</mat-label>
+        <input matInput formControlName="secondCtrl" required>
+      </mat-form-field>
+      <p>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" ></mat-datepicker>
+      </mat-form-field>
+    </p>
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Address</mat-label>
+          <textarea matInput placeholder="Ex. 100 Main St" required></textarea>
+        </mat-form-field>
+      </p>
+
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Pays</mat-label>
+          <input type="text" name="pays" matInput placeholder="Ex. San Francisco" required >
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Region</mat-label>
+          <input matInput placeholder="Ex. San Francisco" required>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Ville</mat-label>
+          <input matInput placeholder="Ex. California" required>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Postal Code</mat-label>
+          <input matInput #postalCode maxlength="5" placeholder="Ex. 94105"  required>
+          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+        </mat-form-field></td>
+      </tr></table>
+      <mat-form-field class="example-full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+216 &nbsp;</span>
+        <input type="tel" matInput placeholder="555-555-1234" required>
+
+      </mat-form-field>
+      <p>
+
+      </p>
+      <div>
+        <button class="btn btn-primary" mat-button matStepperPrevious>Back</button>
+        <button class="btn btn-primary" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button class="btn btn-primary" mat-button routerLink="/">Done</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+</div></div></section>

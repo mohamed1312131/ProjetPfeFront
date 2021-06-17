@@ -1,0 +1,25 @@
+<div><span *ngIf="changed" class="text-success"><i class="fas fa-check"></i>Changements enregistrés</span></div>
+<form (ngSubmit) = "onSubmit(this.userInfo.id)">
+  <img  (click)="open()" (mouseenter)="up()" *ngIf="!userInfo.images[0]" src="../../../assets/img/default-user.png" alt="Admin" class="rounded-circle" width="150"><div *ngIf="u"><i  class="fas fa-upload"></i><span class="text-success">Upload new image</span></div>
+  <img  (click)="open()" (mouseenter)="up()" *ngIf="userInfo.images[0]" src="{{userInfo.images[last].imageUrl}}" alt="Admin" class="rounded-circle" width="150" height="100">
+  <div class="form-group">
+    <label> Adress mail</label><span class="text-success" *ngIf="this.isLogged">(confirmer)</span>
+    <input [(ngModel)] = "user.email" type="text" class ="form-control" id = "email" name = "email">
+</div>
+<div class="form-group">
+  <label> Facebook</label>
+  <input [(ngModel)] = "user.facebook" type="text" class ="form-control" id = "facebook" name = "facebook">
+</div>
+<div class="form-group">
+  <label> Instagram</label>
+  <input [(ngModel)] = "user.instagram"  type="text" class ="form-control" id = "instagram" name = "instagram">
+</div>
+<div class="form-group">
+  <label>Twitter</label>
+  <input [(ngModel)] = "user.twitter"  type="text" class ="form-control" id = "twitter" name = "twitter">
+</div>
+<div class="form-group">
+  <button class="btn btn-primary" type="submit">Sauvegarder</button>
+</div>
+</form>
+

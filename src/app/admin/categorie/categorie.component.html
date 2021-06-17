@@ -1,0 +1,97 @@
+<div class="container">
+  <h2>Consulter les Catégories</h2>
+
+<mat-accordion>
+  <mat-expansion-panel  *ngFor="let cat of mainCategory" (opened)="setStep(cat.id)" style="margin-bottom: 20px;">
+
+    <mat-expansion-panel-header >
+      <mat-panel-title>
+        {{cat.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        vérifier la sous-catégorie
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      <div style="display: inline;margin-left: 400px;">
+        <button class="btn btn-outline-info" ><i class="fas fa-exclamation-triangle"></i></button>
+        <button class="btn btn-outline-danger" ><i class="far fa-trash-alt"></i></button>
+      </div>
+      <mat-expansion-panel  *ngFor="let sub of subCategory" (opened)="getSub2(sub.id)" style="margin-bottom: 20px;">
+        <mat-expansion-panel-header >
+          <mat-panel-title>
+            {{sub.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            vérifier la sous-catégorie
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div style="display: inline;margin-left: 400px;">
+          <button class="btn btn-outline-info" ><i class="fas fa-exclamation-triangle"></i></button>
+          <button class="btn btn-outline-danger" ><i class="far fa-trash-alt"></i></button>
+        </div>
+        <mat-expansion-panel  *ngFor="let sub2 of subCategory2"  style="margin-bottom: 20px;">
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+              {{sub2.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+              vérifier la sous-catégorie
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div style="display: inline;margin-left: 400px;">
+            <button class="btn btn-outline-info" ><i class="fas fa-exclamation-triangle"></i></button>
+            <button class="btn btn-outline-danger" ><i class="far fa-trash-alt"></i></button>
+          </div>
+          <!-- ad new -->
+        </mat-expansion-panel>
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              ajouter une nouvelle catégorie ici
+            </mat-panel-title>
+            <mat-panel-description>
+              <i class="fas fa-folder-plus"></i>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <form (ngSubmit) = "onSubmit()">
+            <div class="row">
+              <div class="col-4 form-group">
+               <input [(ngModel)] = "catego.name" name="name" type="text" class="form-control" placeholder="Categorie name" >
+              </div>
+              <div class="col-4">
+                <button type="submit" class="btn btn-outline-info" style="color: #60C8FF !important;width: 80% !important" (click)="addCat(sub.id)">Ajouter</button>
+              </div>
+
+
+            </div>
+          </form>
+        </mat-expansion-panel>
+      </mat-expansion-panel>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            ajouter une nouvelle catégorie ici
+          </mat-panel-title>
+          <mat-panel-description>
+            <i class="fas fa-folder-plus"></i>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <form (ngSubmit) = "onSubmit()">
+          <div class="row">
+            <div class="col-4 form-group">
+             <input [(ngModel)] = "catego.name" name="name" type="text" class="form-control" placeholder="Categorie name" >
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-outline-info" style="color: #60C8FF !important;width: 80% !important" (click)="addCat(cat.id)">Ajouter</button>
+            </div>
+
+
+          </div>
+        </form>
+      </mat-expansion-panel>
+  </mat-expansion-panel>
+
+</mat-accordion>
+</div>
+
+

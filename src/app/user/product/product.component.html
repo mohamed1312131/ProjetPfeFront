@@ -1,0 +1,55 @@
+<div class="container" style="width: 100% !important;" *ngIf="same">
+  <div class="row"  *ngFor="let articles of article; let i = index">
+    <div class="col-4">
+      <img src="{{article[i].images[0].imageUrl}}" alt="" width="200px">
+    </div>
+    <div class="col-8">
+      <div style="font-size: medium;font-weight: 500;padding-bottom: 10px;">{{article[i].title}}</div>
+      <div style="color: #888;line-height: 24px;padding-bottom: 10px;">{{userInfo.email}}</div>
+      <ngb-rating [max]="5" [(rate)]="article[i].rate" [readonly]="readonly" ></ngb-rating><label style="font-size: 15px;">({{userInfo.countRate}})</label>
+      <div style="padding-top: 10px;padding-bottom: 10px;font-weight: 500;">{{article[i].prix}}DT</div>
+      <div class="button-det">
+        <button class="b btn btn-secondary" style="margin-left: 2px;" [routerLink]="['/booster', article[i].id]"><i class="fas fa-rocket"></i> booster</button>
+        <button class="v btn btn-secondary" style="margin-left: 2px;" (click)="definirVendu(article[i].id)"><i class="fas fa-clipboard-check"></i> vendu</button>
+        <button class="e btn btn-secondary" style="margin-left: 2px;" ><i class="fas fa-edit"></i> editer</button>
+        <button class="s btn btn-secondary" style="margin-left: 2px;" (click)="deleteArticle(article[i].id)"><i class="fas fa-trash-alt"></i> supprimer</button>
+      </div>
+      <div class="button-det">
+
+
+      </div>
+
+  </div>
+  </div>
+
+</div>
+<div class="contianer" *ngIf="!same">
+  <mat-grid-list cols="3" rowHeight="500px" gutterSize="5px" style="padding: 5px;" >
+    <mat-grid-tile *ngFor="let p of article; let i=index">
+      <div class="product-card">
+        <div *ngIf="p.booster" class="badge">Booster</div>
+        <div class="product-tumb">
+          <img src="../../../assets/img/shoe_1.jpg" alt="" >
+        </div>
+        <div class="product-details">
+          <h4><a [routerLink]="['/article', p.id]">{{p.title}}</a></h4>
+          <div class="product-bottom-details">
+              <div class="product-prices">{{p.prix}} DT</div>
+          </div>
+          <div class="form-group">
+            <ngb-rating [max]="5" [(rate)]="p.likes" [readonly]="true"></ngb-rating>
+          </div>
+          <div>
+
+          </div>
+          <div class="product-links">
+            <button class="ajouter btn btn-primary" [routerLink]="['/panier', p.id]">Ajouter au panier</button>
+
+          </div>
+        </div>
+      </div>
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
